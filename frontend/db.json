@@ -1,0 +1,41 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "predictions": [
+    {
+      "id": "1",
+      "title": "Prediction 1",
+      "description": "This is prediction 1",
+      "probability": 0.85
+    },
+    {
+      "id": "2",
+      "title": "Prediction 2",
+      "description": "This is prediction 2",
+      "probability": 0.65
+    },
+    {
+      "id": "3",
+      "title": "Prediction 3",
+      "description": "This is prediction 3",
+      "probability": 0.75
+    }
+  ]
+}
+
+
