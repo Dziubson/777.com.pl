@@ -34,36 +34,28 @@ const AppHeader = (): ReactElement => {
                     <CIcon icon={cilMenu} size="lg" />
                 </CHeaderToggler>
                 <CHeaderBrand className="mx-auto d-md-none">
-                    <Link to="/">
-                        <CIcon icon={""} height={48} aria-label="Logo" />
-                    </Link>
+
                 </CHeaderBrand>
                 <CHeaderNav className="d-none d-md-flex me-auto">
-                    <CNavItem>
-                        <Link to="/">Dashboard</Link>
+                    <CNavItem component={Link} to="/">
+                        Dashboard
                     </CNavItem>
-                    <CNavItem>
-                        <Link to="/users">Users</Link>
+                    <CNavItem component={Link} to="/users">
+                        Users
                     </CNavItem>
-                    <CNavItem>
-                        <Link to="/settings">Settings</Link>
+                    <CNavItem component={Link} to="/settings">
+                        Settings
                     </CNavItem>
                 </CHeaderNav>
                 <CHeaderNav>
-                    <CNavItem>
-                        <Link to="#">
-                            <CIcon icon={cilBell} size="lg" />
-                        </Link>
+                    <CNavItem component={Link} to="/settings">
+                        <CIcon icon={cilBell} size="lg" />
                     </CNavItem>
-                    <CNavItem>
-                        <Link to="#">
-                            <CIcon icon={cilList} size="lg" />
-                        </Link>
+                    <CNavItem component={Link} to="/settings">
+                        <CIcon icon={cilList} size="lg" />
                     </CNavItem>
-                    <CNavItem>
-                        <Link to="#">
-                            <CIcon icon={cilEnvelopeOpen} size="lg" />
-                        </Link>
+                    <CNavItem component={Link} to="/settings">
+                        <CIcon icon={cilEnvelopeOpen} size="lg" />
                     </CNavItem>
                 </CHeaderNav>
                 <CHeaderNav className="ms-3">

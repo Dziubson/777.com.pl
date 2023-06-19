@@ -1,5 +1,4 @@
-// main.tsx
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
@@ -12,13 +11,17 @@ if (typeof window.process === 'undefined') {
     };
 }
 
-// Usuwamy konfigurację store - teraz jest w innym pliku
-
 const rootElement = document.getElementById('root');
 
-ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    rootElement
-);
+// Check if rootElement exists
+if (rootElement) {
+
+    const root = createRoot(rootElement);
+    root.render(
+        <Provider store={store}>
+            <App />
+        </Provider>,
+    );
+} else {
+    console.error("Root element not found");
+}

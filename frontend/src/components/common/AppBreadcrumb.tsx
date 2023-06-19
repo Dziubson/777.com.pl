@@ -1,5 +1,6 @@
 import React, { ReactElement, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import routes from '../../routes.tsx';
 
@@ -8,7 +9,9 @@ import { CBreadcrumb, CBreadcrumbItem } from '@coreui/react';
 interface RouteType {
     path: string;
     name: string;
+    element: JSX.Element;
 }
+
 
 interface BreadcrumbType {
     pathname: string;
@@ -44,14 +47,18 @@ const AppBreadcrumb = (): ReactElement => {
 
     return (
         <CBreadcrumb className="m-0 ms-2">
-            <CBreadcrumbItem href="/">Home</CBreadcrumbItem>
+            <CBreadcrumbItem>
+                <Link to="/">Home</Link>
+            </CBreadcrumbItem>
             {breadcrumbs.map((breadcrumb, index) => {
                 return (
                     <CBreadcrumbItem
-                        {...(breadcrumb.active ? { active: true } : { href: breadcrumb.pathname })}
+                        {...(breadcrumb.active ? { active: true } : {})}
                         key={index}
                     >
-                        {breadcrumb.name}
+                        <Link to={breadcrumb.pathname}>
+                            {breadcrumb.name}
+                        </Link>
                     </CBreadcrumbItem>
                 );
             })}

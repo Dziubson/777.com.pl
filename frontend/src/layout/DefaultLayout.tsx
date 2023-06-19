@@ -1,19 +1,23 @@
 import React from 'react'
-import { AppContent, AppSidebar, AppFooter, AppHeader } from '../../src/components/common/index.tsx'
+import {AppContent, AppSidebar, AppFooter, AppHeader} from '../../src/components/common/index.tsx'
+import { ChildrenProp } from '../types.ts';
 
-const DefaultLayout: React.FC = () => {
+const DefaultLayout: React.FC<ChildrenProp> = ({ children }) => {
     return (
         <div>
-            <AppSidebar />
-        <div className="wrapper d-flex flex-column min-vh-100 bg-light">
-        <AppHeader />
-        <div className="body flex-grow-1 px-3">
-            <AppContent />
+            <AppSidebar/>
+            <div className="wrapper d-flex flex-column min-vh-100 bg-light">
+                <AppHeader/>
+                <div className="body flex-grow-1 px-3">
+                    <AppContent>
+                        {children}
+                    </AppContent>
+                </div>
+                <AppFooter/>
             </div>
-            <AppFooter />
-            </div>
-            </div>
+        </div>
     )
 }
 
 export default DefaultLayout
+

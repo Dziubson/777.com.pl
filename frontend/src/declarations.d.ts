@@ -22,3 +22,16 @@ declare module '*.svg' {
     const content: any;
     export default content;
 }
+// react-dom.d.ts
+declare module "react-dom/client" {
+    interface Root {
+        render(children: React.ReactNode): void;
+        unmount(): void;
+    }
+
+    export function createRoot(
+        container: HTMLElement,
+        options?: { hydrate?: boolean }
+    ): Root;
+}
+

@@ -1,6 +1,8 @@
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import '../../frontend/src/scss/style.scss';
+import DefaultLayout from '../src/layout/DefaultLayout';
+import routes from './routes';
 
 const loading = (
     <div className="pt-3 text-center">
@@ -8,28 +10,14 @@ const loading = (
     </div>
 )
 
-// Pages
-//const HomePage = React.lazy(() => import('./pages/HomePage'));
-const DefaultLayout = React.lazy(() => import('../src/layout/DefaultLayout'));
-const PredictionsPage = React.lazy(() => import('./pages/PredictionsPage'));
-const UserProfilePage = React.lazy(() => import('./pages/UserProfilePage'));
-const MatchDetailsPage = React.lazy(() => import('./pages/MatchDetailsPage'));
-const StatisticsPage = React.lazy(() => import('./pages/StatisticsPage'));
-const LoginPage = React.lazy(() => import('./pages/LoginPage'));
-const RegisterPage = React.lazy(() => import('./pages/RegisterPage'));
-
 const App = () => {
     return (
         <Router>
             <Suspense fallback={loading}>
                 <Routes>
-                    <Route path="/*" element={<DefaultLayout />} />
-                    <Route path="/predictions" element={<PredictionsPage />} />
-                    <Route path="/profile" element={<UserProfilePage />} />
-                    <Route path="/matchdetails" element={<MatchDetailsPage />} />
-                    <Route path="/statistics" element={<StatisticsPage />} />
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/register" element={<RegisterPage />} />
+                    {routes.map((route, index) => (
+                        <Route key={index} path={route.path} element={<DefaultLayout>{route.element}</DefaultLayout>} />
+                    ))}
                 </Routes>
             </Suspense>
         </Router>

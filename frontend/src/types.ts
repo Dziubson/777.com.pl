@@ -70,3 +70,7 @@ export interface PredictionAction {
 export interface DispatchType {
     (arg0: UserAction | MatchAction | BetAction | PredictionAction): void;
 }
+
+export interface ChildrenProp {
+    children: React.ReactNode;
+}
